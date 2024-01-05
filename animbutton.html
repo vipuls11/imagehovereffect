@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.m-2, h1 {
+  margin: 20px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-top: 5rem;
+  font-family: tahoma;
+  background-color: #f9fcfb;
+}
+
+.btn {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 0.8px 1px rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.btn-red {
+  background-color: #fd5e53;
+  color: #fff;
+}
+.btn-red__matt {
+  background-color: #d15a7c;
+  color: #fff;
+}
+.btn-red__pop {
+  background-color: #f64b3c;
+  color: #ffffff;
+}
+.btn-green {
+  background-color: #50d890;
+  color: #ffffff;
+}
+.btn-blue {
+  background-color: #4f98ca;
+  color: #ffffff;
+}
+.btn-purple {
+  background-color: #54123b;
+  color: #ffffff;
+}
+.btn-yellow {
+  background-color: #fdd365;
+  color: #ffffff;
+}
+.btn-bordered::before {
+  content: "";
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #fff;
+  transition: top, left, right, bottom, 150ms ease-in-out;
+}
+.btn-bordered.btn-red::before {
+  border-color: #fd5e53;
+}
+.btn-bordered:hover::before {
+  top: calc(2px * -2);
+  left: calc(2px * -2);
+  right: calc(2px * -2);
+  bottom: calc(2px * -2);
+}
+.btn-slide__x {
+  z-index: 1;
+}
+.btn-slide__x::before {
+  content: "";
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  transition: transform 350ms ease-in-out;
+  transform: scalex(0);
+  transform-origin: left;
+}
+.btn-slide__x:hover::before {
+  transform: scalex(1);
+}
+.btn-slide__curved {
+  z-index: 1;
+  overflow: hidden;
+}
+.btn-slide__curved::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  transition: transform 450ms ease-in-out;
+  transform: matrix(2, 0, 0.5, 2.5, -250, 50);
+  transform-origin: left;
+}
+.btn-slide__curved:hover::before {
+  transform: matrix(2.2, 0, 0.5, 2.5, -10, 0);
+}
+.btn-slide__pop {
+  z-index: 1;
+  overflow: hidden;
+}
+.btn-slide__pop::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(353deg, #f5d4d4 0%, rgba(255, 255, 255, 0.3239670868) 22%, #a3d4de 100%);
+  z-index: -1;
+  opacity: 0.3;
+  transition: transform 550ms cubic-bezier(0.83, 1.89, 0, 0.7);
+  transform: matrix(2.5, 0, 0.7, 2.5, -50, -130);
+  transform-origin: left;
+}
+.btn-slide__pop:hover::before {
+  transform: matrix(2.2, 0, 0.15, 2.5, -50, -38);
+}
+.btn-highlight {
+  z-index: 1;
+  overflow: hidden;
+}
+.btn-highlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(171, 0, 0, 0.2);
+  z-index: -1;
+  opacity: 1;
+  transition: transform 550ms cubic-bezier(0.83, 0.89, 0, 0.7);
+  transform: matrix(0.0001, 0, 0, 1, 0, 35);
+}
+.btn-highlight:hover::before {
+  transform: matrix(1, 0, 0, 1, 0, 35);
+}
+.btn-raised {
+  transition: box-shadow ease-in-out 0.4s;
+}
+.btn-raised:hover {
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(255, 181, 202, 0.31);
+}
+
+.content-wrapper {
+  max-width: 400px;
+}
+
+.content, .btn-container {
+  width: 100%;
+  text-align: left;
+}
+
+.btn-container::after {
+  content: "@sumitpal29";
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-size: 12px;
+}
+
+h1 {
+  border-bottom: 1px solid #fd5e53;
+  color: #21243d;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.col-red {
+  color: #f64b3c;
+}
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1>Experiments on <div class="col-red">Button Hover </div> Animation</h1>
+      
+        <div class="btn-container">
+          <button class="btn btn-bordered btn-red m-2">
+            Hover over me1
+          </button>
+      
+          <button class="btn btn-slide__x btn-green m-2">
+            Hover over me2
+          </button>
+      
+          <button class="btn btn-slide__curved btn-blue m-2">
+            Hover over me3
+          </button>
+      
+          <button class="btn btn-slide__pop btn-purple m-2">
+            Hover over me4
+          </button>
+      
+          <button class="btn btn-highlight btn-yellow m-2">
+            Hover over me5
+          </button>
+      
+          <button class="btn btn-raised btn-red__matt m-2">
+            Hover over me6
+          </button>
+        </div>
+      </div>
+</body>
+</html>

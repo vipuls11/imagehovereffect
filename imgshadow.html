@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            /* max-width: 20%; */
+            margin: 4% 0% 0% 2%;
+        }
+
+        .gallery img{
+            width: 100%; 
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 5%;
+            transition: scale 350ms ease, opacity 350ms linear;
+        }
+
+        .gallery:has(img:hover) img:not(:hover){
+            scale: 0.8;
+            opacity: 0.5;
+        }
+
+        .gallery img:hover{
+            box-shadow:  0 0 5px #03e9f4, 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 80px #03e9f4;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 480px) {
+            .gallery{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            /* max-width: 20%; */
+            margin: 4% 0% 0% 2%;
+        }
+}
+    </style>
+</head>
+<body>
+   <div class="gallery">
+        <img src="images/panda.jpeg" alt="">
+        <img src="images/rat.jpg" alt="">
+        <img src="images/panda.jpeg" alt="">
+        <img src="images/rat.jpg" alt="">
+        <img src="images/panda.jpeg" alt="">
+        <img src="images/rat.jpg" alt="">
+   </div> 
+</body>
+</html>
