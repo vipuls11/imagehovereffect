@@ -40,6 +40,34 @@
             margin: 4% 0% 0% 2%;
         }
 }
+
+/* ...........................gallery card.................... */
+.gallery1{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            /* max-width: 20%; */
+            margin: 4% 0% 0% 2%;
+        }
+
+.gallery1 .card img{
+            width: 100%; 
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 5%;
+            transition: scale 350ms ease, opacity 350ms linear;
+        }
+
+        .gallery1:has(.card:hover) .card:not(:hover){
+            scale: 0.8;
+            opacity: 0.5;
+        }
+
+        .gallery1 .card:hover{
+            box-shadow:  0 0 5px #03e9f4, 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 80px #03e9f4;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -51,5 +79,17 @@
         <img src="images/panda.jpeg" alt="">
         <img src="images/rat.jpg" alt="">
    </div> 
+
+   <div class="gallery1">
+    <div class="card">
+    <img src="images/panda.jpeg" alt="">
+</div>
+    <div class="card"><img src="images/rat.jpg" alt="">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus itaque quibusdam suscipit vero aspernatur! Exercitationem cumque corrupti consequatur eius cum eligendi, quas minus similique quibusdam unde natus fugiat dolorem aperiam.</p></div>
+    <div class="card"><img src="images/panda.jpeg" alt=""></div>
+    <div class="card"><img src="images/rat.jpg" alt=""></div>
+    <div class="card"><img src="images/panda.jpeg" alt=""></div>
+    <div class="card"><img src="images/rat.jpg" alt=""></div>
+</div>
 </body>
 </html>
