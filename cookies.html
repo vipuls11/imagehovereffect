@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.cookie-container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="cookie-container">
+        <p>We use cookies to make your experience of our websites better. By using and further navigating this website you accept this detailed information about the use of cookies on this website.</p>
+        <button id="accept-cookie">Accept</button>
+        <button id="cancel-cookie">Cancel</button>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+
+    <script>
+        document.getElementById('accept-cookie').addEventListener('click', function () {
+    setCookie('cookie-accepted', 'true', 365);
+    document.querySelector('.cookie-container').style.display = 'none';
+});
+
+document.getElementById('cancel-cookie').addEventListener('click', function () {
+    setCookie('cookie-accepted', 'false', 365);
+    document.querySelector('.cookie-container').style.display = 'none';
+});
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+    </script>
+</body>
+</html>
