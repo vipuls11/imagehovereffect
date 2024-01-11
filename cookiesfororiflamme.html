@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies For Oriflamme It Solution</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;        
+        }
+
+        body{
+            background: #fcba7f;
+        }
+
+        .wrapper{
+            position: absolute;
+            bottom: 30px;
+            left:30px;
+            max-width: 365px;
+            background: #fff;
+            padding: 25px 25px 30px 25px;
+            border-radius:15px;
+            box-shadow:1px 7px 14px -5px rgba(0,0,0,0.15);
+            text-align: center; 
+        }
+
+        .wrapper .hide{
+            opacity:0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        ::selection{
+            color: #fff;
+            background: #fcba7f;
+        }
+
+        .wrapper img{
+            max-width:90px;
+        }
+        .content header{
+            font-size: 25px;
+            font-weight:600;
+        }
+        .content{
+            margin-top: 10px;
+        }
+        .content p{
+            color: #858585;
+            margin: 5px 0 20px 0;
+        }
+        .content .buttons{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .buttons button{
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 5px;
+            background: #fcba7f;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .buttons button:hover{
+            transform: scale(0.97);
+        }
+        .buttons .item{
+            margin: 0 10px;
+        }
+        .buttons a{
+            color: #fcba7f;
+        }
+    </style>
+</head>
+<body>
+   <div class="wrapper">
+    <img src="images/cookies.jpg" alt="">
+    <div class="content">
+        <header>Cookies Consent</header>
+        <p>This website use cookies ti ensure you get the best expercie on our website.</p>
+        <div class="buttons">
+            <button class="button item" >
+                I understand
+            </button>
+            <button class="item">Learn more</button>
+        </div>
+    </div>
+   </div> 
+
+
+   <script>
+    const cookieBox = document.querySelector(".wrapper"); 
+    acceptBtn = cookieBox.querySelector(".buttons button");
+    document.cookie = "CookieBy=oriflameitsolutions; max-1month="+60*60*24*30;
+    // console.log(document.cookie);
+    acceptBtn.onclick = () => {
+        // console.log("button clicked!");
+        //setting cookie for 1month, after one month it'll be expire automatically
+        // document.cookie = "privacyPolicyAccepted=true; expires=Thu, 01 Jan 2024 00:00:00 UTC; path=/";
+        document.cookie = "CookieBy=oriflameitsolutions; max-month="+60*60*24*30;
+        window.location.reload(document.cookie)
+            console.log(document.cookie)
+        
+    //     if(document.cookie){
+    //         //if the above cookie set
+    //         cookieBox.classList.add("hide");  //hide cookie box once cookie set
+    //     }
+    //     // console.log(document.cookie);
+    //     else
+    //     {
+    //         // if cookies not set then alert an error
+    //         alert("Cookie can't be set! Please unblock this from the cookie setting of your browser.");
+    //         //If cookie can't be set alert an error
+    //     }
+    }  
+    
+    // //  //let's hide the cookie box if cookie is set and not expired
+
+    //  let checkCookie = document.cookie.indexOf("CookieBy=oriflammeitsolutions"); 
+    //  // checking our set cookie
+    //  //if cookie is set the hide the cookie box else show it
+
+    //  checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide"); 
+
+   </script>
+
+   <script>
+    // Function to set a cookie
+function setCookie(cookieName, cookieValue, expirationDays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+}
+
+// Example usage: Set a cookie named "user" with the value "John Doe" that expires in 7 days
+setCookie("user", "John Doe", 7);
+
+// Function to get the value of a cookie by name
+function getCookie(cookieBox) {
+    var name = cookieBox + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i].trim();
+        if (cookie.indexOf(name) == 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+    return "";
+}
+
+// Example usage: Get the value of the "user" cookie
+// var username = getCookie("user");
+// console.log("User:", username);
+   </script>
+
+</body>
+</html>
