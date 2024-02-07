@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .original-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  color: #ff0000;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  border: 1px solid #ff0000;
+  position: relative;
+  transition: 0.3s;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.original-button::before {
+  content: "new";
+  display: block;
+  font-size: 11px;
+  width: 60px;
+  text-align: center;
+  background-color: #f00;
+  color: #fff;
+  padding: 7px 0 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-34%, -4px) rotate(-35deg);
+  transition: .3s;
+}
+
+.original-button:hover {
+  color: #fff;
+  background-color: #f00;
+}
+
+.original-button:hover::before {
+  background-color: #fff;
+  color: #f00;
+}
+    </style>
+</head>
+<body>
+    <a href="" class="original-button">Button</a>
+</body>
+</html>
